@@ -68,7 +68,7 @@ def markSpot():
 
 
 ### This function checks all the combinations that would enable the player to win the game.
-def checkIfWin(bo, le):
+def hasWon(bo, le):
     if (
     (bo[0] == le and bo[1] == le and bo[2] == le) or # across the top
     (bo[3] == le and bo[4] == le and bo[5] == le) or # across the middle
@@ -84,13 +84,11 @@ def checkIfWin(bo, le):
     	return True
 
 
-def checkIfBoardFull():
+def boardIsFull():
     for i in range(9):
-        if boardList[i] == " ":
-            return True
-        else:
-        	print "The game has ended in a tie."
-        	return False
+        if spotClear(i):
+        	return True
+    return False
 
 
 boardList = [" "] * 9
@@ -111,8 +109,8 @@ while runGame == True:
 
 	markSpot()
 
-	runGame = checkIfWin(boardList, playerLetter(playerNum))
+	runGame = hasWon(boardList, playerLetter(playerNum))
 
-	runGame = checkIfBoardFull()
+	runGame = boardIsFull()
 
 	playerNum += 1
