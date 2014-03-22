@@ -100,17 +100,10 @@ playerNum = 1
 runGame = True
 
 while runGame == True:
-
 	guideBoard()
-
 	print "It is Player " + str(playerNumber(playerNum)) + "\'s turn. The letter you play is " + playerLetter(playerNum)
-
 	drawBoard(boardList)
-
 	markSpot()
-
 	runGame = hasWon(boardList, playerLetter(playerNum))
-
 	runGame = boardIsFull()
-
 	playerNum += 1
