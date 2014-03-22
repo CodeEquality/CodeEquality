@@ -78,6 +78,7 @@ def hasWon(bo, le):
     (bo[2] == le and bo[5] == le and bo[8] == le) or # down the right side
     (bo[0] == le and bo[4] == le and bo[8] == le) or # diagonal
     (bo[2] == le and bo[4] == le and bo[6] == le)):# diagonal
+        drawBoard(boardList)
         print "You have won!"
         return False
     else:
@@ -100,10 +101,10 @@ playerNum = 1
 runGame = True
 
 while runGame == True:
-	guideBoard()
-	print "It is Player " + str(playerNumber(playerNum)) + "\'s turn. The letter you play is " + playerLetter(playerNum)
-	drawBoard(boardList)
-	markSpot()
-	runGame = hasWon(boardList, playerLetter(playerNum))
-	runGame = boardIsFull()
-	playerNum += 1
+    runGame = boardIsFull()
+    guideBoard()
+    print "It is Player " + str(playerNumber(playerNum)) + "\'s turn. The letter you play is " + playerLetter(playerNum)
+    drawBoard(boardList)
+    markSpot()
+    runGame = hasWon(boardList, playerLetter(playerNum))
+    playerNum += 1
