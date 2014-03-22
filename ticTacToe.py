@@ -103,7 +103,7 @@ while runGame == True:
 
 	guideBoard()
 
-	print "It is Player " + str(playerNum) + "\'s turn. The letter you play is " + playerLetter(playerNum)
+	print "It is Player " + str(playerNumber(playerNum)) + "\'s turn. The letter you play is " + playerLetter(playerNum)
 
 	drawBoard(boardList)
 
