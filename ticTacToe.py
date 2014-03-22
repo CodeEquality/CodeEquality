@@ -69,7 +69,8 @@ def markSpot():
 
 ### This function checks all the combinations that would enable the player to win the game.
 def checkIfWin(bo, le):
-    if ((bo[0] == le and bo[1] == le and bo[2] == le) or # across the top
+    if (
+    (bo[0] == le and bo[1] == le and bo[2] == le) or # across the top
     (bo[3] == le and bo[4] == le and bo[5] == le) or # across the middle
     (bo[6] == le and bo[7] == le and bo[8] == le) or # across the bottom
     (bo[0] == le and bo[3] == le and bo[6] == le) or # down the left side
@@ -78,8 +79,9 @@ def checkIfWin(bo, le):
     (bo[0] == le and bo[4] == le and bo[8] == le) or # diagonal
     (bo[2] == le and bo[4] == le and bo[6] == le)):# diagonal
         print "You have won!"
-
-    return False
+        return False
+    else:
+    	return True
 
 
 def checkIfBoardFull():
@@ -90,15 +92,6 @@ def checkIfBoardFull():
         	print "The game has ended in a tie."
         	return False
 
-"""def checkIfBoardFull():
-    for i in range(9):
-        if spotClear(i):
-            print "The game continues..."
-        else:
-        	print "The game has ended in a tie."
-        	return False"""
-
-
 
 boardList = [" "] * 9
 
@@ -106,8 +99,9 @@ print "Welcome to Tic Tac Toe!"
 	
 playerNum = 1
 
-while True:
-	checkIfBoardFull()
+runGame = True
+
+while runGame == True:
 
 	guideBoard()
 
@@ -117,8 +111,8 @@ while True:
 
 	markSpot()
 
-	checkIfWin(boardList, playerLetter(playerNum))
+	runGame = checkIfWin(boardList, playerLetter(playerNum))
 
-
+	runGame = checkIfBoardFull()
 
 	playerNum += 1
