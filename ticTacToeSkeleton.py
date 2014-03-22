@@ -35,17 +35,13 @@ def drawBoard(game):
 ### We keep a total count of plays made, starting with 1. If the total count divided by 2 has a remainder of 1, it means the current player is Player 1.
 ### If the total count divided by 2 has not remainder, it means the current player is Player 2. 
 def playerNumber(playerNo):
-    if playerNo % 2 == 0:
-        return 2
-    else:
-        return 1
+    ## Write your code below
+    ## You take in 1 input called playerNo, and output 2 numbers: 1 and 2
 
 ### First player's letter is "O" while second player's letter is "X" 
 def playerLetter(num):
-	if playerNumber(num) == 1:
-		return "O"
-	else:
-		return "X"
+    ## Write your code below
+    ## You take in 1 input called num, and output 2 letters: "O" or "X"
 
 
 ### Here we check if the spot that the Player picks is clearn, i.e. contains a spacebar " ".
@@ -58,12 +54,20 @@ def playerMove():
     numbers = range(9)
     spot = input("Pick a spot by keying in a number between 0 to 8.\n")
     spot = int(spot)
-    while spot not in numbers or not spotClear(spot):
-    	    spot = input("Pick a spot by keying in a number between 0 to 8.\n")
+
+    ## Write your code below
+    ## You will need a while loop here as long as the input you get for spot is invalid. You need to check for 2 conditions here.
+    ## (1) Input is not a number from 0 to 8
+    ## (2) The spot that corresponds to the input is already taken
+
+
     return int(spot)
     
 ### Here we change the item in the list to the player's letter, which is either "O" or "X"
 def markSpot():
+    ## Write your code below
+    ## You need to replace the spot indicated by the playerMove in the boardList list to the player's letter, i.e. "X" or "O"
+    ## Tips: Do not specify "X" or "O" directly, take it instead from the function playerLetter(num), where you need to give playerLetter one input, which is the current player's letter
 	boardList[playerMove()] = playerLetter(playerNum)
 
 
@@ -84,12 +88,9 @@ def hasWon(bo, le):
     else:
     	return True
 
-
+## Check if the board has already been fully played, i.e. no more empty spots left
 def boardIsFull():
-    for i in range(9):
-        if spotClear(i):
-        	return True
-    return False
+    ## Tips: use a for loop combined with an if statement. This function needs to either return a True or a False
 
 
 boardList = [" "] * 9
