@@ -56,12 +56,21 @@ def spotClear(spotPicked):
 ### Here we ask the Player to give us an input on which spot on the board they would like to play. While 
 def playerMove():
     numbers = range(9)
-    spot = input("Pick a spot by keying in a number between 0 to 8.\n")
+    spot = validateInput("Pick a spot by keying in a number between 0 to 8.\n")
     spot = int(spot)
+
     while spot not in numbers or not spotClear(spot):
-    	    spot = input("Pick a spot by keying in a number between 0 to 8.\n")
+    	    spot = validateInput("Pick a spot by keying in a number between 0 to 8.\n")
     return int(spot)
     
+def validateInput(inputMsg):
+    while True:
+        try:
+            userInput = int(raw_input(inputMsg))
+            return userInput
+        except ValueError:
+            print "Whoops, that is not a number!"
+
 ### Here we change the item in the list to the player's letter, which is either "O" or "X"
 def markSpot():
 	boardList[playerMove()] = playerLetter(playerNum)
