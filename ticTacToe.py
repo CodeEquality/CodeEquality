@@ -62,7 +62,8 @@ def playerMove():
     while spot not in numbers or not spotClear(spot):
     	    spot = validateInput("Pick a spot by keying in a number between 0 to 8.\n")
     return int(spot)
-    
+
+### Input validation for integer only input    
 def validateInput(inputMsg):
     while True:
         try:
